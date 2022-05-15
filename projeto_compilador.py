@@ -24,3 +24,7 @@ if __name__=="__main__":
     else:
         for aux in tokens:
             analise_sintatica.estrutura_linguagem(aux)
+    
+    print(tokens)
+    
+    #iniciando analise semantica

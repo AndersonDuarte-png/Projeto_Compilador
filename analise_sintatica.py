@@ -129,9 +129,9 @@ def tratar_linha(lista_tokens,tamanho_lista):
         if int_aux == 350:
             if aux_anterior != 700 and aux_anterior != 600:
                 erro = 1
-        # regra deliminitadores iniciais podem ser declarados depois de variaveis, valores, palavras reservadas
+        # regra deliminitadores iniciais podem ser declarados depois de variaveis, valores, palavras reservadas, atribuidores e comparadores
         if int_aux == 400:
-            if aux_anterior != 700 and aux_anterior != 600 and aux_anterior != 200:
+            if aux_anterior != 700 and aux_anterior != 600 and aux_anterior != 200 and aux_anterior != 300 and aux_anterior != 800 and aux_anterior != 350:
                 erro = 1
 
         # regra deliminitadores finais podem ser declarados depois de variaveis, valores
@@ -162,7 +162,6 @@ def validador_linha(tokens_values,tamanho_lista):
         return 1
 
     else:
-        print("verif")
         verificacao = tratar_linha(tokens_values,tamanho_lista)
 
     if verificacao == 1:

@@ -64,4 +64,6 @@ P_R_final_linha = (";",":")
 
 P_R_igual = ("=","=")
 
+P_R_iniciadores_variaveis =("int","float","string","char")
+
 
