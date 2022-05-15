@@ -1,4 +1,6 @@
 from itertools import count
+from lib2to3.pgen2 import token
+from statistics import quantiles
 
 
 def tratar_string(valor):
@@ -18,6 +20,43 @@ def token_linha(token):
 def erro(linha):
     print(f"erro sintatico na linha {linha}")
 
+def validar_delimitadores(tokens):
+    quant_delim = 0
+    cont_linha = 1
+    linha_inic = None
+    for linha in tokens:
+
+        for token_atual in linha:
+            token_code = int(token_cod(token_atual))
+
+            if token_code == 400:
+                quant_delim = quant_delim + 1
+                linha_inic = cont_linha
+
+            elif token_code == 450:
+                if quant_delim > 0:
+                    quant_delim = quant_delim - 1
+
+                elif quant_delim == 0:
+                    return -1, cont_linha
+
+        cont_linha = cont_linha + 1
+
+    return quant_delim, linha_inic 
+
+
+def tratar_validadores(tokens):
+    quant_delim = 0
+    linha = None
+    quant_delim, linha = validar_delimitadores(tokens)
+
+    if quant_delim == -1:
+        return 1, linha
+    elif quant_delim > 0:
+        return 1, linha
+     
+    return 0, None
+    
 
 def declarar_variaveis(lista_tokens):
     cont = 1
@@ -113,7 +152,6 @@ def tratar_linha(lista_tokens,tamanho_lista):
         aux_anterior = int(aux)   
     return erro 
         
-
 
 def validador_linha(tokens_values,tamanho_lista):
     #casos especiais
