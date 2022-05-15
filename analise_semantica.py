@@ -17,7 +17,10 @@ def token_palavra(token):
     valor_token = array[4]
     return valor_token
 
-
+def nome_variavel(token):
+    array = tratar_string(token)
+    valor_token = array[1]
+    return valor_token
 
 def iniciadores_palavras(tokens):
     variaveis_iniciadas = []
@@ -32,9 +35,21 @@ def iniciadores_palavras(tokens):
                 token_cod_ant =  int(token_cod(token_ant)) 
 
                 if token_cod_ant == 100:
+                    
+
                     token_nome_ant = token_palavra(token_ant)
                     token_atual_nome = token_palavra(token_atual)
-                    variaveis_iniciadas.append( str(f"{token_nome_ant}_{token_atual_nome}") )
+                    token_var = str(f"{token_nome_ant}_{token_atual_nome}")
+                    if variaveis_iniciadas == []:
+                        variaveis_iniciadas.append(token_var)
+                    else:
+                        var = nome_variavel(token_var)
+                        for aux in variaveis_iniciadas:
+                            aux_var = nome_variavel(aux)
+                            if var == aux_var:
+                                return 1
+                            else:
+                                variaveis_iniciadas.append(token_var)
 
 
             token_ant = token_atual
