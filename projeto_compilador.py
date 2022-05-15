@@ -1,6 +1,7 @@
 import palavras_reservadas
 import analise_lexica
 import analise_sintatica
+import analise_semantica
 
 
 if __name__=="__main__":
@@ -13,9 +14,9 @@ if __name__=="__main__":
         contagem_linha = contagem_linha + 1
         tokens.append( analise_lexica.identificar_palavra(line,contagem_linha))
 
-    #iniciando analise lexica
+    
     #validando quantidade de validadores
-    erro_validadores = 1
+    erro_validadores = 0
     linha = None
     erro_validadores, linha = analise_sintatica.tratar_validadores(tokens)
 
@@ -23,8 +24,9 @@ if __name__=="__main__":
         print(f"erro 400 na linha: {linha}")
     else:
         for aux in tokens:
-            analise_sintatica.estrutura_linguagem(aux)
+            erro_validadores = analise_sintatica.estrutura_linguagem(aux)
     
-    print(tokens)
-    
-    #iniciando analise semantica
+  
+    if erro_validadores != 1:
+        #iniciando analise semantica
+        resultado = analise_semantica.orquestrador_semantico(tokens)

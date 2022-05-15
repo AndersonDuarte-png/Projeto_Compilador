@@ -4,7 +4,9 @@ import palavras_reservadas
 '''
 ideia da separação em tokens
 
-100 = iniciadores  
+100 = iniciadores variaveis
+
+150 - iniciadores 
 
 200 = palavras reservadas
 
@@ -43,8 +45,11 @@ def identificar_palavra(linha,num_linha):
             tokens.append("\n")
         else:
             aux = aux.strip('\n')    
-            if aux in palavras_reservadas.P_R_iniciadores:
-                tokens.append("TKN_"+"100_"+"inic_"+str(num_linha)+"_"+str(aux))
+            if aux in palavras_reservadas.P_R_iniciadores_variaveis:
+                tokens.append("TKN_"+"100_"+"inic-var_"+str(num_linha)+"_"+str(aux))
+
+            elif aux in palavras_reservadas.P_R_iniciadores:
+                tokens.append("TKN_"+"150_"+"inic_"+str(num_linha)+"_"+str(aux))
 
             elif aux in palavras_reservadas.P_R_reserved_words:
                 tokens.append("TKN_"+"200_"+"reser_"+str(num_linha)+"_"+str(aux))

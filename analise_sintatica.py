@@ -23,9 +23,8 @@ def erro(linha):
 def validar_delimitadores(tokens):
     quant_delim = 0
     cont_linha = 1
-    linha_inic = None
+    linha_inic = 0
     for linha in tokens:
-
         for token_atual in linha:
             token_code = int(token_cod(token_atual))
 
@@ -41,7 +40,6 @@ def validar_delimitadores(tokens):
                     return -1, cont_linha
 
         cont_linha = cont_linha + 1
-
     return quant_delim, linha_inic 
 
 
@@ -55,7 +53,7 @@ def tratar_validadores(tokens):
     elif quant_delim > 0:
         return 1, linha
      
-    return 0, None
+    return 0, 0
     
 
 def declarar_variaveis(lista_tokens):
@@ -131,7 +129,7 @@ def tratar_linha(lista_tokens,tamanho_lista):
                 erro = 1
         # regra deliminitadores iniciais podem ser declarados depois de variaveis, valores, palavras reservadas, atribuidores e comparadores
         if int_aux == 400:
-            if aux_anterior != 700 and aux_anterior != 600 and aux_anterior != 200 and aux_anterior != 300 and aux_anterior != 800 and aux_anterior != 350:
+            if aux_anterior != 150 and aux_anterior != 600 and aux_anterior != 200 and aux_anterior != 300 and aux_anterior != 800 and aux_anterior != 350:
                 erro = 1
 
         # regra deliminitadores finais podem ser declarados depois de variaveis, valores
@@ -181,4 +179,5 @@ def estrutura_linguagem(linha):
 
     if validador == 1:
         linha_tokens = token_linha(token) 
-        print(f"erro linha {linha_tokens}")
+        print(f"erro sintatico linha {linha_tokens}")
+        return 1
