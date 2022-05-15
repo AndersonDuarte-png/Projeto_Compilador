@@ -12,3 +12,4 @@ def iniciadores_palavras(tokens):
 #orquestrador
 def orquestrador_semantico(tokens):
     verificador = iniciadores_palavras(tokens)
+    
