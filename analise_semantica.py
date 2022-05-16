@@ -4,7 +4,7 @@ from statistics import quantiles
 import palavras_reservadas
 
 '''
-fazer: verificação de declaração de variaveis 80%
+fazer: verificação de declaração de variaveis 100%
 
 fazer: valor atribuidos as variaveis 0%
 
