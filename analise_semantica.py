@@ -3,6 +3,13 @@ from lib2to3.pgen2 import token
 from statistics import quantiles
 import palavras_reservadas
 
+'''
+fazer: verificação de declaração de variaveis 80%
+
+fazer: valor atribuidos as variaveis 0%
+
+'''
+
 def tratar_string(valor):
     array = valor.split('_')
     return array
@@ -35,21 +42,23 @@ def iniciadores_palavras(tokens):
                 token_cod_ant =  int(token_cod(token_ant)) 
 
                 if token_cod_ant == 100:
-                    
-
                     token_nome_ant = token_palavra(token_ant)
                     token_atual_nome = token_palavra(token_atual)
                     token_var = str(f"{token_nome_ant}_{token_atual_nome}")
+
                     if variaveis_iniciadas == []:
                         variaveis_iniciadas.append(token_var)
+
                     else:
                         var = nome_variavel(token_var)
                         for aux in variaveis_iniciadas:
                             aux_var = nome_variavel(aux)
+
                             if var == aux_var:
-                                return 1
-                            else:
-                                variaveis_iniciadas.append(token_var)
+                                return 1,cont_linha
+
+                        variaveis_iniciadas.append(token_var)
+                           
 
 
             token_ant = token_atual
@@ -59,9 +68,9 @@ def iniciadores_palavras(tokens):
 #orquestrador
 def orquestrador_semantico(tokens):
     linha = None
-    verificador = iniciadores_palavras(tokens)
+    verificador,linha = iniciadores_palavras(tokens)
 
     print(f"verificador: {verificador}")
 
-    #if verificador == 1:
-        #print(f"erro na delcaração de variaveis, linha: {linha}")
+    if verificador == 1:
+        print(f"erro na delcaração de variaveis, linha: {linha}")

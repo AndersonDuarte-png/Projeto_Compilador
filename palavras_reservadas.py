@@ -58,7 +58,7 @@ P_R_delimitadores_finalizadores =(")","}","]")
 
 P_R_comentario = ("//","/*","*/")
 
-P_R_iniciadores = ("int","float","string","char","for","while","if","else","elif")
+P_R_iniciadores = ("for","while","if","else","elif")
 
 P_R_final_linha = (";",":")
 

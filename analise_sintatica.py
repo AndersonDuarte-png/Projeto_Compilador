@@ -101,13 +101,12 @@ def tratar_linha(lista_tokens,tamanho_lista):
                     erro = 1
         #regra: variaveis não podem ter palavras reservadas (200), variaveis (700), valores (600) como anteriores,  ;
         if int_aux == 700:
-            if aux_anterior == 200 or aux_anterior == 700 or aux_anterior == 600 or aux_anterior == 500:
+            if aux_anterior == 200 or aux_anterior == 700 or aux_anterior == 600 or aux_anterior == 500 or aux_anterior == 150:
                 erro = 1
         
         #regra: palavras reservadas não podem ter basicamente nada antes deles
         if int_aux == 200 and aux_anterior != None:
             erro = 1
-
 
         # ; não pode ser declarado depois de delimitadores iniciadores
         if int_aux == 500 and aux_anterior == 400:

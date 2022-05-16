@@ -20,13 +20,14 @@ if __name__=="__main__":
     linha = None
     erro_validadores, linha = analise_sintatica.tratar_validadores(tokens)
 
+
     if erro_validadores == 1:
         print(f"erro 400 na linha: {linha}")
     else:
         for aux in tokens:
             erro_validadores = analise_sintatica.estrutura_linguagem(aux)
+
     
-  
     if erro_validadores != 1:
         #iniciando analise semantica
         resultado = analise_semantica.orquestrador_semantico(tokens)
