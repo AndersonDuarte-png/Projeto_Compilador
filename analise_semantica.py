@@ -31,7 +31,7 @@ def nome_variavel(token):
 
 def iniciadores_palavras(tokens):
     variaveis_iniciadas = []
-    declaracoes = ""
+    contador_erro = 0
     token_ant = ""
     cont_linha = 1
     for linha in tokens:
@@ -63,7 +63,7 @@ def iniciadores_palavras(tokens):
 
             token_ant = token_atual
         cont_linha = cont_linha + 1
-    return variaveis_iniciadas
+    return variaveis_iniciadas, linha
 
 #orquestrador
 def orquestrador_semantico(tokens):
