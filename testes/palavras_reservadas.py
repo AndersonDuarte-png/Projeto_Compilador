@@ -1,4 +1,4 @@
-P_R_reserved_words =(
+P_R_reserved_words =[
                 "asm",
                 "double",
                 "new",
@@ -46,15 +46,15 @@ P_R_reserved_words =(
                 "do",
                 "long",
                 "struct",
-                "while")
+                "while"]
 
 P_R_operadores = ( "+", "-", "/", "*","+=","-=","*=")
 
 P_R_comparadores =("==",">=","<=","&&","||","!=")
 
-P_R_linhas_validacao =["+","-", "/", "*","+=","-=","*=","(","{","[",")","}","]",";",":","="]
-
 P_R_delimitadores_iniciadores = ("(","{","[")
+
+P_R_linhas_validacao =["+","-", "/", "*","+=","-=","*=","(","{","[",")","}","]",";",":","="]
 
 P_R_delimitadores_finalizadores =(")","}","]")
 
