@@ -46,7 +46,9 @@ P_R_reserved_words =(
                 "do",
                 "long",
                 "struct",
-                "while")
+                "while",
+                "import"
+                )
 
 P_R_operadores = ( "+", "-", "/", "*","+=","-=","*=")
 
@@ -67,5 +69,15 @@ P_R_final_linha = (";",":")
 P_R_igual = ("=","=")
 
 P_R_iniciadores_variaveis =("int","float","string","char")
+
+P_R_output=(">>",">>")
+
+P_R_input= ("<<","<<")
+
+P_R_simbolos=("#","#")
+
+P_R_aspas=('""','""')
+
+
 
 

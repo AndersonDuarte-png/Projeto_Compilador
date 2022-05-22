@@ -83,6 +83,17 @@ def declarar_variaveis(lista_tokens):
 
         cont = cont + 1
 
+def imports(lista_tokens):
+    if int(lista_tokens[0]) == 50:
+        if int(lista_tokens[0]) == 100:
+            if int(lista_tokens[0]) == 25:
+                if int(lista_tokens[0]) == 600 or int(lista_tokens[0]) == 700 :
+                   if int(lista_tokens[0]) == 25:
+                       if int(lista_tokens[0]) == 400:
+                           return 0 
+
+
+
 def tratar_linha(lista_tokens,tamanho_lista):
 
     aux_anterior = None
