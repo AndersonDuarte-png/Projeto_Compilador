@@ -57,40 +57,31 @@ def tratar_validadores(tokens):
     
 
 def declarar_variaveis(lista_tokens):
-    cont = 1
-    proximo_2 = None
-    for aux in lista_tokens:
-        int_aux = int(aux)
+    print(lista_tokens)
+    try:
+        if int(lista_tokens[0]) == 100:
 
-        if int_aux == 100:
+            if int(lista_tokens[1]) == 600 or int(lista_tokens[1]) == 700:
 
-            try:
-                proximo = int(lista_tokens[cont])
-            except:
-                return 0
+                if int(lista_tokens[2]) == 800:
 
-            if proximo == 700:
+                    if int(lista_tokens[3]) == 600 or int(lista_tokens[0]) == 700:
+                        if int(lista_tokens[4]) == 500:
+                            return 2
+    except:
+        return None
 
-                try:
-                    proximo_2 = int(lista_tokens[cont + 1])
-                except:
-                    return 0
-
-                if proximo_2 != 800:
-                    return 1
-                else:
-                    return 0
-
-        cont = cont + 1
 
 def imports(lista_tokens):
-    if int(lista_tokens[0]) == 50:
-        if int(lista_tokens[1]) == 200:
-            if int(lista_tokens[2]) == 850:
-                if int(lista_tokens[3]) == 600 or int(lista_tokens[0]) == 700 :
-                   if int(lista_tokens[4]) == 825:
-                       if int(lista_tokens[5]) == 400:
-                           return 0
+    try:
+        if int(lista_tokens[0]) == 50:
+            if int(lista_tokens[1]) == int("01"):
+                if int(lista_tokens[2]) == 850:
+                    if int(lista_tokens[3]) == 600 or int(lista_tokens[0]) == 700 :
+                        if int(lista_tokens[4]) == 825:
+                            return 2
+    except:
+        return None
 
 
 
@@ -137,6 +128,11 @@ def tratar_linha(lista_tokens,tamanho_lista):
         if int_aux == 350:
             if aux_anterior != 700 and aux_anterior != 600:
                 erro = 1
+        # nesse caso esse comparador pode ter palavras reservadas expecificas antes
+        if int_aux == 351 or int_aux == 352:
+            if aux_anterior != 700 and aux_anterior != 600 and aux_anterior != int("01"):
+                erro = 1
+
         # regra deliminitadores iniciais podem ser declarados depois de variaveis, valores, palavras reservadas, atribuidores e comparadores
         if int_aux == 400:
             if aux_anterior != 150 and aux_anterior != 600 and aux_anterior != 200 and aux_anterior != 300 and aux_anterior != 800 and aux_anterior != 350:
@@ -163,14 +159,14 @@ def tratar_linha(lista_tokens,tamanho_lista):
 
 def validador_linha(tokens_values,tamanho_lista):
     #casos especiais
-    verificacao = 0
+    verificacao = None
+
     verificacao = declarar_variaveis(tokens_values)
+
     verificacao = imports(tokens_values)
 
-    if verificacao == 1:
-        return 1
-
-    else:
+    #casos gerais
+    if verificacao == None:
         verificacao = tratar_linha(tokens_values,tamanho_lista)
 
     if verificacao == 1:

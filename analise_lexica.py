@@ -75,6 +75,12 @@ def identificar_palavra(linha,num_linha):
 
             elif aux in palavras_reservadas.P_R_comparadores:
                 tokens.append("TKN_"+"350_"+"compa_"+str(num_linha)+"_"+str(aux))
+            
+            elif aux in palavras_reservadas.P_R_comparadores_351:
+                tokens.append("TKN_"+"351_"+"compa351_"+str(num_linha)+"_"+str(aux))
+
+            elif aux in palavras_reservadas.P_R_comparadores_352:
+                tokens.append("TKN_"+"352_"+"compa352_"+str(num_linha)+"_"+str(aux))
 
             elif aux in palavras_reservadas.P_R_delimitadores_iniciadores:
                 tokens.append("TKN_"+"400_"+"delimi-inic_"+str(num_linha)+"_"+str(aux))
@@ -91,17 +97,14 @@ def identificar_palavra(linha,num_linha):
             elif aux in palavras_reservadas.P_R_igual:
                 tokens.append("TKN_"+"800_"+"atribui_"+str(num_linha)+"_"+str(aux))
 
-            elif aux in palavras_reservadas.P_R_seta_2:
-                tokens.append("TKN_"+"825_"+"seta_2_"+str(num_linha)+"_"+str(aux))
-
-            elif aux in palavras_reservadas.P_R_seta_1:
-                tokens.append("TKN_"+"850_"+"seta_1_"+str(num_linha)+"_"+str(aux))
-
             elif aux in palavras_reservadas.P_R_simbolos:
                 tokens.append("TKN_"+"50_"+"simbolos_"+str(num_linha)+"_"+str(aux))
 
             elif aux in palavras_reservadas.P_R_aspas:
                 tokens.append("TKN_"+"25_"+"aspas_"+str(num_linha)+"_"+str(aux))
+
+            elif aux in palavras_reservadas.P_R_externo:
+                tokens.append("TKN_"+"01_"+"includes_"+str(num_linha)+"_"+str(aux))
 
             else:
                 if aux.isdigit():

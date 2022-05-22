@@ -13,8 +13,6 @@ if __name__=="__main__":
     for line in arquivo_entrada:
         contagem_linha = contagem_linha + 1
         tokens.append( analise_lexica.identificar_palavra(line,contagem_linha))
-    #print(tokens)
-
 
     #validando quantidade de validadores
     erro_validadores = 0
