@@ -1,2 +1,1 @@
-int a=a+a a;
-float c = c ;
+#include  <stdio.h>

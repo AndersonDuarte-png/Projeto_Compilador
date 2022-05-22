@@ -13,9 +13,8 @@ if __name__=="__main__":
     for line in arquivo_entrada:
         contagem_linha = contagem_linha + 1
         tokens.append( analise_lexica.identificar_palavra(line,contagem_linha))
-    print(tokens)
+    #print(tokens)
 
-    '''
 
     #validando quantidade de validadores
     erro_validadores = 0
@@ -29,7 +28,7 @@ if __name__=="__main__":
         for aux in tokens:
             erro_validadores = analise_sintatica.estrutura_linguagem(aux)
 
-    
+    '''
     if erro_validadores != 1:
         #iniciando analise semantica
         resultado = analise_semantica.orquestrador_semantico(tokens)

@@ -45,7 +45,8 @@ def separador_palavras(line):
         except:
             array_new.append(aux)
     string_array = "".join(array_new)
-    array_final = string_array.split(' ')
+    array_final = string_array.split()
+    print(array_final)
     return array_final
 
 def tratar_string(valor):
@@ -59,7 +60,7 @@ def identificar_palavra(linha,num_linha):
         if aux == "\n":
             tokens.append("\n")
         else:
-            aux = aux.strip('\n')    
+            aux = aux.strip('\n')
             if aux in palavras_reservadas.P_R_iniciadores_variaveis:
                 tokens.append("TKN_"+"100_"+"inic-var_"+str(num_linha)+"_"+str(aux))
 
@@ -84,14 +85,17 @@ def identificar_palavra(linha,num_linha):
             elif aux in palavras_reservadas.P_R_final_linha:
                 tokens.append("TKN_"+"500_"+"final_"+str(num_linha)+"_"+str(aux))
 
+            elif aux in palavras_reservadas.P_R_return:
+                tokens.append("TKN_"+"505_"+"return_"+str(num_linha)+"_"+str(aux))
+
             elif aux in palavras_reservadas.P_R_igual:
                 tokens.append("TKN_"+"800_"+"atribui_"+str(num_linha)+"_"+str(aux))
 
-            elif aux in palavras_reservadas.P_R_output:
-                tokens.append("TKN_"+"825_"+"output_"+str(num_linha)+"_"+str(aux))
+            elif aux in palavras_reservadas.P_R_seta_2:
+                tokens.append("TKN_"+"825_"+"seta_2_"+str(num_linha)+"_"+str(aux))
 
-            elif aux in palavras_reservadas.P_R_input:
-                tokens.append("TKN_"+"850_"+"input_"+str(num_linha)+"_"+str(aux))
+            elif aux in palavras_reservadas.P_R_seta_1:
+                tokens.append("TKN_"+"850_"+"seta_1_"+str(num_linha)+"_"+str(aux))
 
             elif aux in palavras_reservadas.P_R_simbolos:
                 tokens.append("TKN_"+"50_"+"simbolos_"+str(num_linha)+"_"+str(aux))

@@ -85,12 +85,12 @@ def declarar_variaveis(lista_tokens):
 
 def imports(lista_tokens):
     if int(lista_tokens[0]) == 50:
-        if int(lista_tokens[0]) == 100:
-            if int(lista_tokens[0]) == 25:
-                if int(lista_tokens[0]) == 600 or int(lista_tokens[0]) == 700 :
-                   if int(lista_tokens[0]) == 25:
-                       if int(lista_tokens[0]) == 400:
-                           return 0 
+        if int(lista_tokens[1]) == 200:
+            if int(lista_tokens[2]) == 850:
+                if int(lista_tokens[3]) == 600 or int(lista_tokens[0]) == 700 :
+                   if int(lista_tokens[4]) == 825:
+                       if int(lista_tokens[5]) == 400:
+                           return 0
 
 
 
@@ -114,7 +114,7 @@ def tratar_linha(lista_tokens,tamanho_lista):
         if int_aux == 700:
             if aux_anterior == 200 or aux_anterior == 700 or aux_anterior == 600 or aux_anterior == 500 or aux_anterior == 150:
                 erro = 1
-        
+            
         #regra: palavras reservadas não podem ter basicamente nada antes deles
         if int_aux == 200 and aux_anterior != None:
             erro = 1
@@ -165,6 +165,7 @@ def validador_linha(tokens_values,tamanho_lista):
     #casos especiais
     verificacao = 0
     verificacao = declarar_variaveis(tokens_values)
+    verificacao = imports(tokens_values)
 
     if verificacao == 1:
         return 1
